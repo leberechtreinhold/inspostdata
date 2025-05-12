@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsPostData", "InsPostData.csproj", "{E2111907-8250-497D-A656-8715221FED71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2111907-8250-497D-A656-8715221FED71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2111907-8250-497D-A656-8715221FED71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2111907-8250-497D-A656-8715221FED71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2111907-8250-497D-A656-8715221FED71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42F2E312-F1E7-42E5-B899-61BBEA42B3AC}
+	EndGlobalSection
+EndGlobal
