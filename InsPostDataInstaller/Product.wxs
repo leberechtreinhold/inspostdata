@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="InsPostDataInstaller" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="82de0d48-04d3-4a74-8c2d-e684a23a02dc">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <Product Id="*" Name="InsPostDataInstaller" Language="1033" Version="1.0.0.0" Manufacturer="LeberechtReinhold" UpgradeCode="82de0d48-04d3-4a74-8c2d-e684a23a02dc">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate />
 
-		<Feature Id="ProductFeature" Title="InsPostDataInstaller" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+        <Binary Id="GetInsPostData" SourceFile="..\InsPostDataAction\bin\Debug\InsPostDataAction.CA.dll" />
+        <CustomAction Id="GetInsPostDataAction" BinaryKey="GetInsPostData" DllEntry="GetInsPostDataFn" Return="check" />
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="InsPostDataInstaller" />
-			</Directory>
-		</Directory>
-	</Fragment>
+        <InstallExecuteSequence>
+            <Custom Action="GetInsPostDataAction" Before="CostFinalize">NOT Installed AND NOT PATCH</Custom>
+        </InstallExecuteSequence>
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
-	</Fragment>
+        <InstallUISequence>
+            <Custom Action="GetInsPostDataAction" Before="CostFinalize">NOT Installed AND NOT PATCH</Custom>
+        </InstallUISequence>
+
+        <Feature Id="ProductFeature" Title="InsPostDataInstaller" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+    </Product>
+
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="InsPostDataInstaller" />
+            </Directory>
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+            <!-- <Component Id="ProductComponent"> -->
+            <!-- TODO: Insert files, registry keys, and other resources here. -->
+            <!-- </Component> -->
+        </ComponentGroup>
+    </Fragment>
 </Wix>

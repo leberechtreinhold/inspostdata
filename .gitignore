@@ -2,3 +2,7 @@
 InsPostData/.vs
 InsPostData/InsPostData.csproj.user
 InsPostDataAction/obj
+InsPostData/bin
+InsPostDataAction/bin
+InsPostDataInstaller/bin
+InsPostDataInstaller/obj
